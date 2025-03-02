@@ -1,5 +1,5 @@
-# Fancylog
-**fancyLog** — это пакет для создания красивых, структурированных и цветных логов в Go. Он позволяет легко форматировать вывод с поддержкой настраиваемой подсветки полей, автоматического выравнивания и управления порядком отображения данных.
+# fancylog
+**fancylog** — is a package for creating beautiful, structured, and colored logs in Go. It allows you to easily format the output with support for customizable field highlighting, automatic alignment, and control over the order of data display.
 ___
 With [Go's module support](https://go.dev/wiki/Modules#how-to-use-modules), go `[build|run|test]` automatically fetches the necessary dependencies when you add the import in your code:
 ```
@@ -63,7 +63,9 @@ func main() {
 
 	logger := zerolog.New(writer).With().Timestamp().Caller().Str("app", "websocket-chat").Logger()
 
-	logger.Info().Int("status", 200).Str("message", "Server started successfully").Timestamp().Dict("extra", zerolog.Dict().Str("key1", "value1").Int("key2", 42)).Send()
+	logger.Info().Int("status", 200).Str("message", "Server started successfully")
+		.Timestamp().Dict("extra", zerolog.Dict()
+		.Str("key1", "value1").Int("key2", 42)).Send()
 
 	time.Sleep(2 * time.Second)
 	writer.Close()
