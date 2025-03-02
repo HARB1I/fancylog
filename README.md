@@ -33,10 +33,10 @@ import (
 func main() {
 	config := fancylog.Config{
 		FieldOrder: []string{"level", "message", "caller", "time", "app", "status"},
-		Rules: map[string]fancylog.ColorRule{
+		Rules: fancylog.ColorRules{
 			"level": {
 				DefaultColor: fancylog.ColorWhite,
-				ValueColors: map[string]string{
+				ValueColors: fancylog.Colors{
 					"debug": fancylog.ColorCyan,
 					"info":  fancylog.ColorGreen,
 					"warn":  fancylog.ColorYellow,
@@ -46,7 +46,7 @@ func main() {
 			},
 			"status": {
 				DefaultColor: fancylog.ColorWhite,
-				ValueColors: map[string]string{
+				ValueColors: fancylog.Colors{
 					"200": fancylog.ColorGreen,
 					"404": fancylog.ColorOrange,
 					"500": fancylog.ColorRed,
