@@ -63,7 +63,9 @@ func main() {
 
 	logger := zerolog.New(writer).With().Timestamp().Caller().Str("app", "websocket-chat").Logger()
 
-	logger.Info().Int("status", 200).Str("message", "Server started successfully").Timestamp().Dict("extra", zerolog.Dict().Str("key1", "value1").Int("key2", 42)).Send()
+	logger.Info().Int("status", 200).Str("message", "Server started successfully")
+		.Timestamp().Dict("extra", zerolog.Dict()
+		.Str("key1", "value1").Int("key2", 42)).Send()
 
 	time.Sleep(2 * time.Second)
 	writer.Close()
