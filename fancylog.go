@@ -162,14 +162,18 @@ func addField(sb *strings.Builder, key string, value interface{}, maxKeyLength i
 }
 
 type Config struct {
-	FieldOrder []string             // Порядок вывода полей
-	Rules      map[string]ColorRule // Правила подсветки для каждого поля
+	FieldOrder []string   // Порядок вывода полей
+	Rules      ColorsRule // Правила подсветки для каждого поля
 }
 
+type ColorsRule map[string]ColorRule
+
 type ColorRule struct {
-	DefaultColor string            // Цвет по умолчанию для этого поля
-	ValueColors  map[string]string // Специальные цвета для конкретных значений
+	DefaultColor string // Цвет по умолчанию для этого поля
+	ValueColors  Colors // Специальные цвета для конкретных значений
 }
+
+type Colors map[string]string
 
 func getColor(key string, value interface{}, rule ColorRule) string {
 	if rule.DefaultColor == "" {
