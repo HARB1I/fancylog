@@ -1,5 +1,5 @@
-# Fancylog
-**fancyLog** — is a package for creating beautiful, structured, and colored logs in Go. It allows you to easily format the output with support for customizable field highlighting, automatic alignment, and control over the order of data display.
+# fancylog
+**fancylog** — is a package for creating beautiful, structured, and colored logs in Go. It allows you to easily format the output with support for customizable field highlighting, automatic alignment, and control over the order of data display.
 ___
 With [Go's module support](https://go.dev/wiki/Modules#how-to-use-modules), go `[build|run|test]` automatically fetches the necessary dependencies when you add the import in your code:
 ```
